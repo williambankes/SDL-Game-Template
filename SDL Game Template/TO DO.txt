@@ -1,0 +1,13 @@
+
+GRAPHIC:
+Design button sprites
+	- For general ui useage
+
+PROGRAMMING:
+
+Introduce scaling factor to the Texture Manager's draw functionality
+
+DEVELOPMENT GOALS:
+
+Eventual aim: Transition this model into a library to be used in future
+projects

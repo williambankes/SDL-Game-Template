@@ -1,0 +1,7 @@
+Changes made to the code laid out in "SDL Game Development":
+
+1. To try and fix a bug in the GameStateMachine a state loader system was added to
+   control the point at which the GameState was actually changed.
+	- Add the new State to the m_stateChanges private variable with 
+	loadStateChange these are then run by updateState after each state has 
+	finished updating and rendering.

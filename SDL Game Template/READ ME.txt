@@ -1,0 +1,26 @@
+READ ME:
+
+To use SDL Game Template in another game:
+
+1. Copy the SDL Game Template directory and rename
+
+2. Rename all occurances of 'SDL Game Template'
+
+3. Open the sln file in notepad and change SDL Game Template paths and names appropriately
+
+4. Open build and run the solution to test the changes.
+
+Errors:
+
+ - If intermediate directory contains file from another project: Delete all debug and release folders in all folders of the project
+   you will have to copy the .dll files back into the correct places
+
+ - Solution view unsorted: ensure vsxproj.user/filter files have the correct file endings, these are easily deleted when renaming
+
+ - Unable to start the application 0x0000000007b (or something like this): Ensure the correct .dll file versions have been used i.e. x86 or x64.
+    - This project currently uses the x86 lib
+
+Credits:
+
+Assets:
+https://opengameart.org/content/sleek-bars - Janna
