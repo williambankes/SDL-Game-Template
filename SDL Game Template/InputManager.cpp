@@ -1,20 +1,20 @@
-#include "InputHandler.h"
+#include "InputManager.h"
 
 //handle keyboard events:
-void InputHandler::onKeyDown() {
+void InputManager::onKeyDown() {
 	m_keystates = SDL_GetKeyboardState(0);
 }
-void InputHandler::onKeyUp() {
+void InputManager::onKeyUp() {
 	m_keystates = SDL_GetKeyboardState(0);
 }
 
 //handle mouse events:
-void InputHandler::onMouseMove(SDL_Event& event) {
+void InputManager::onMouseMove(SDL_Event& event) {
 	m_mousePosition->setX(event.motion.x);
 	m_mousePosition->setY(event.motion.y);
 }
 
-void InputHandler::onMouseButtonDown(SDL_Event& event) {
+void InputManager::onMouseButtonDown(SDL_Event& event) {
 	if (event.button.button == SDL_BUTTON_MIDDLE)
 	{
 		m_mouseButtonStates[MIDDLE] = true;
@@ -31,7 +31,7 @@ void InputHandler::onMouseButtonDown(SDL_Event& event) {
 	}
 }
 
-void InputHandler::onMouseButtonUp(SDL_Event& event) {
+void InputManager::onMouseButtonUp(SDL_Event& event) {
 	if (event.button.button == SDL_BUTTON_LEFT)
 	{
 		m_mouseButtonStates[LEFT] = false;
@@ -49,12 +49,12 @@ void InputHandler::onMouseButtonUp(SDL_Event& event) {
 
 //Check input States:
 
-bool InputHandler::getMouseButtonState(int buttonNumber)
+bool InputManager::getMouseButtonState(int buttonNumber)
 {
 	return m_mouseButtonStates[buttonNumber];
 }
 
-bool InputHandler::isKeyDown(SDL_Scancode key)
+bool InputManager::isKeyDown(SDL_Scancode key)
 {
 	if (m_keystates != 0)
 	{
@@ -71,12 +71,12 @@ bool InputHandler::isKeyDown(SDL_Scancode key)
 	return false;
 }
 
-Vector2D* InputHandler::getMousePosition() 
+Vector2D* InputManager::getMousePosition() 
 {
 	return m_mousePosition;
 }
 
-void InputHandler::update() {
+void InputManager::update() {
 	
 	SDL_Event event;
 
@@ -117,15 +117,15 @@ void InputHandler::update() {
 	}
 }
 
-void InputHandler::clean() {
+void InputManager::clean() {
 	std::cout << "cleaning Input Handler" << std::endl;
 }
 
-bool InputHandler::getRunning() {
+bool InputManager::getRunning() {
 	return m_brunning;
 }
 
-void InputHandler::reset()
+void InputManager::reset()
 {
 	for (int i = 0; i < m_mouseButtonStates.size(); i++)
 	{
@@ -136,9 +136,9 @@ void InputHandler::reset()
 
 //Singleton Implementation:
 
-InputHandler* InputHandler::s_pInstance = 0;
+InputManager* InputManager::s_pInstance = 0;
 
-InputHandler::InputHandler() {
+InputManager::InputManager() {
 
 	m_mousePosition = new Vector2D(0,0);
 
@@ -148,10 +148,10 @@ InputHandler::InputHandler() {
 	}
 }
 
-InputHandler* InputHandler::getInstance() {
+InputManager* InputManager::getInstance() {
 	if (s_pInstance == 0)
 	{
-		s_pInstance = new InputHandler();
+		s_pInstance = new InputManager();
 		return s_pInstance;
 	}
 

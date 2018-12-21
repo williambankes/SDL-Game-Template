@@ -1,6 +1,6 @@
 #include "PlayState.h"
 #include "TextureManager.h"
-#include "InputHandler.h"
+#include "InputManager.h"
 #include "Game.h"
 
 const std::string PlayState::s_playID = "PLAY";
@@ -11,7 +11,7 @@ std::string PlayState::getStateID() const {
 
 void PlayState::update() 
 {
-	if (InputHandler::getInstance()->isKeyDown(SDL_SCANCODE_ESCAPE))
+	if (InputManager::getInstance()->isKeyDown(SDL_SCANCODE_ESCAPE))
 	{
 		Game::getInstance()->getStateMachine()->
 			loadStateChange(PAUSESTATE, PUSH);

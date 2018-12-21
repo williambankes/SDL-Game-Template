@@ -1,6 +1,6 @@
 #pragma once
 #include "MenuButton.h"
-#include "InputHandler.h"
+#include "InputManager.h"
 
 MenuButton::MenuButton(const LoaderParams* pParams, void (*callback)()) :
 	SDLGameObject(pParams), m_callback(callback)
@@ -15,7 +15,7 @@ void MenuButton::draw()
 
 void MenuButton::update() 
 {
-	Vector2D * pMousePos = InputHandler::getInstance()->getMousePosition();
+	Vector2D * pMousePos = InputManager::getInstance()->getMousePosition();
 
 	if (pMousePos -> getX() < (m_position.getX() + m_width)
 		&& pMousePos -> getX() > m_position.getX()
@@ -24,7 +24,7 @@ void MenuButton::update()
 	{
 		m_currentFrame = MOUSE_OVER;
 
-		if (InputHandler::getInstance()->getMouseButtonState(LEFT)
+		if (InputManager::getInstance()->getMouseButtonState(LEFT)
 			&& m_bReleased)
 		{
 			m_currentFrame = CLICKED;
@@ -33,7 +33,7 @@ void MenuButton::update()
 
 			m_bReleased = false;
 		}
-		else if (!InputHandler::getInstance()->getMouseButtonState(LEFT))
+		else if (!InputManager::getInstance()->getMouseButtonState(LEFT))
 		{
 			m_bReleased = true;
 			m_currentFrame = MOUSE_OVER;

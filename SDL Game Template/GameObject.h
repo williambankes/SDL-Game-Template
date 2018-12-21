@@ -8,14 +8,13 @@ class LoaderParams {
 public:
 
 	LoaderParams(int x, int y, int width, int height,
-		std::string textureID);
+		std::string textureID, int callBackID = 0, int animSpeed = 0);
 
 	int getX() const;
 	int getY() const;
 	int getWidth() const;
 	int getHeight() const;
 	std::string getTextureID() const;
-
 
 private:
 
@@ -27,6 +26,8 @@ private:
 
 	std::string m_textureID;
 
+	int m_callBackID;
+	int m_animSpeed;
 };
 
 class GameObject {
@@ -36,11 +37,12 @@ public:
 	virtual void draw() = 0;
 	virtual void update() = 0;
 	virtual void clean() = 0;
+	virtual void load(const LoaderParams* pParams) = 0;
 	
 
 protected:
 	
-	GameObject(const LoaderParams* pParams);
+	GameObject();
 	virtual ~GameObject();
 };
 
@@ -48,11 +50,13 @@ class SDLGameObject : public GameObject {
 
 public:
 
-	SDLGameObject(const LoaderParams* pParams);
+	SDLGameObject();
 
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
+	virtual void load(const LoaderParams* pParams);
+	
 
 protected:
 
@@ -68,16 +72,4 @@ protected:
 
 	std::string m_textureID;
 
-};
-
-class Player : public SDLGameObject
-{
-public:
-
-	void draw();
-	void update();
-	void handleInputs();
-	void clean();
-
-	Player(const LoaderParams* pParams);
 };

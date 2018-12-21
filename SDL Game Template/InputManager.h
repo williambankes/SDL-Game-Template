@@ -10,10 +10,10 @@ enum mouse_buttons {
 	RIGHT = 2
 };
 
-class InputHandler
+class InputManager
 {
 public:
-	static InputHandler* getInstance();
+	static InputManager* getInstance();
 
 	//handle keyboard events:
 	void onKeyDown();
@@ -44,7 +44,7 @@ private:
 	const Uint8* m_keystates;
 
 	//Singleton Implementation:
-	InputHandler();
-	static InputHandler* s_pInstance;
+	InputManager();
+	static InputManager* s_pInstance;
 };
 

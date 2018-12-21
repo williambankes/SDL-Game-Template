@@ -4,7 +4,7 @@
 #include "MenuState.h"
 
 //Managers:
-#include "InputHandler.h"
+#include "InputManager.h"
 
 
 bool Game::init(const char* title,
@@ -61,7 +61,7 @@ void Game::render() {
 void Game::clean() {
 
 	//Add class clean functions here:
-	InputHandler::getInstance()->clean();
+	InputManager::getInstance()->clean();
 	
 	//clean the base game class:
 	std::cout << "Cleaning Game" << std::endl;
@@ -72,12 +72,12 @@ void Game::clean() {
 
 void Game::handleEvents() {
 	
-	InputHandler::getInstance()->update();
+	InputManager::getInstance()->update();
 }
 
 void Game::update() {
 		
-	if (!InputHandler::getInstance()->getRunning())
+	if (!InputManager::getInstance()->getRunning())
 	{
 		m_brunning = false;
 	}

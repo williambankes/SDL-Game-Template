@@ -1,7 +1,7 @@
 #include "GameObject.h"
 #include "Game.h"
 #include "TextureManager.h"
-#include "InputHandler.h"
+#include "InputManager.h"
 
 
 //LoaderParams:
@@ -16,20 +16,25 @@ int LoaderParams::getHeight() const { return m_height; }
 std::string LoaderParams::getTextureID() const { return m_textureID; }
 
 //GameObject:
-GameObject::GameObject(const LoaderParams* pParams) {}
+GameObject::GameObject() {}
 GameObject::~GameObject() {}
 
-//SDLGameObject:
-SDLGameObject::SDLGameObject(const LoaderParams* pParams) :
-	GameObject(pParams), m_position(pParams->getX(), pParams-> getY()),
-	m_velocity(0, 0), m_acceleration(0, 0) {
 
+//SDLGameObject:
+SDLGameObject::SDLGameObject() : GameObject() {}
+
+void SDLGameObject::load(const LoaderParams* pParams)
+{
+	m_position = Vector2D(pParams->getX(), pParams->getY());
+	m_velocity = Vector2D(0, 0);
+	m_acceleration = Vector2D(0, 0);
 	m_width = pParams->getWidth();
 	m_height = pParams->getHeight();
 	m_textureID = pParams->getTextureID();
 
 	m_currentRow = 1;
 	m_currentFrame = 1;
+
 }
 
 void SDLGameObject::draw() {
@@ -45,29 +50,3 @@ void SDLGameObject::update() {
 	m_velocity += m_acceleration;
 	m_position += m_velocity;
 }
-
-Player::Player(const LoaderParams* pParams) :
-	SDLGameObject(pParams)	{}
-
-
-void Player::draw()
-{
-	SDLGameObject::draw();
-}
-
-void Player::update() 
-{
-	handleInputs();
-	SDLGameObject::update();
-}
-
-void Player::handleInputs()
-{
-	Vector2D* target = InputHandler::getInstance()->getMousePosition();
-
-	m_velocity = *target - m_position;
-
-	m_velocity /= 50;
-}
-
-void Player::clean() {}
