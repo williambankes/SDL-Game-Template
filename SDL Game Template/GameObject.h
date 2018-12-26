@@ -14,7 +14,10 @@ public:
 	int getY() const;
 	int getWidth() const;
 	int getHeight() const;
+	int getCallbackID() const;
 	std::string getTextureID() const;
+	
+
 
 private:
 

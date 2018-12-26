@@ -1,8 +1,7 @@
 #include "Player.h"
 #include "InputManager.h"
 
-Player::Player(const LoaderParams* pParams) :
-	SDLGameObject() {}
+Player::Player() : SDLGameObject() {}
 
 
 void Player::draw()

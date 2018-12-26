@@ -5,11 +5,15 @@
 class MenuButton : public SDLGameObject
 {
 public:
-	MenuButton(const LoaderParams* pParams, void (*callback)());
+	MenuButton();
 
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
+	virtual void load(const LoaderParams *pParams);
+
+	void setCallback(void(*callback)());
+	int getCallbackID();
 
 private:
 
@@ -23,6 +27,7 @@ private:
 	void (*m_callback)();
 
 	bool m_bReleased;
-
+	
+	int m_callBackID;
 };
 

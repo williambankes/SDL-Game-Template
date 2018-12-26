@@ -2,6 +2,7 @@
 #include "TextureManager.h"
 #include "InputManager.h"
 #include "Game.h"
+#include "Player.h"
 
 const std::string PlayState::s_playID = "PLAY";
 
@@ -38,8 +39,7 @@ bool PlayState::onEnter()
 		return false;
 	}
 
-	GameObject* player = new Player(new LoaderParams(100, 100, 50, 50,
-		"paddle"));
+	GameObject* player = new Player();
 
 	m_gameObjects.push_back(player);
 

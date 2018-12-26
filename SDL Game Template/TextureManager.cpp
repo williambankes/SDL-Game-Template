@@ -88,7 +88,7 @@ void clean() {}
 int TextureManager::check_map(std::string id) {
 	if (m_textureMap[id] == 0)
 	{
-		std::cout << "Unable to find texture: " << id << " in m_textureMap"
+		std::cout << "Texture Manager error: Unable to find texture " << id << " in m_textureMap"
 			<< std::endl;
 		return 1;
 	}

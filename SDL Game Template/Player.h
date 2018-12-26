@@ -12,5 +12,5 @@ public:
 
 	void load(const LoaderParams* pParams);
 
-	Player(const LoaderParams* pParams);
+	Player();
 };
