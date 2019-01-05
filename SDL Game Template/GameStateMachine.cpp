@@ -1,7 +1,7 @@
 #include "GameStateMachine.h"
 #include "PlayState.h"
 #include "PauseState.h"
-#include "MenuState.h"
+#include "MainMenuState.h"
 
 void GameStateMachine::pushState(GameState* pState)
 {
@@ -66,14 +66,14 @@ GameState* GameStateMachine::createGameState(int State)
 		return new PlayState;
 		break;
 	case MENUSTATE:
-		return new MenuState;
+		return new MainMenuState;
 		break;
 	case PAUSESTATE:
 		return new PauseState;
 		break;
 		//State cases go here
 	default:
-		return new MenuState;
+		return new MainMenuState;
 		break;
 	}
 }

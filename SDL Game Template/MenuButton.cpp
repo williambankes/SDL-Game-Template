@@ -66,3 +66,8 @@ int MenuButton::getCallbackID()
 {
 	return m_callBackID;
 }
+
+GameObject* MenuButtonCreator::createGameObject() const
+{
+	return new MenuButton();
+}

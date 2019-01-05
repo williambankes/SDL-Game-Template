@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "GameObjectFactory.h"
 
 
 class MenuButton : public SDLGameObject
@@ -31,3 +32,7 @@ private:
 	int m_callBackID;
 };
 
+class MenuButtonCreator : public BaseCreator
+{
+	virtual GameObject* createGameObject() const;
+};

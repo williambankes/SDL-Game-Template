@@ -24,3 +24,8 @@ Credits:
 
 Assets:
 https://opengameart.org/
+
+
+How the system works:
+
+Input: Inputs are handled by the InputManager

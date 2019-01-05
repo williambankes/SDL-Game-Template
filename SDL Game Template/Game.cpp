@@ -1,5 +1,11 @@
 #pragma once
 #include "Game.h"
+
+//GameObjects:
+#include "GameObjectFactory.h"
+#include "MenuButton.h"
+
+//GameStates:
 #include "PlayState.h"
 #include "MenuState.h"
 
@@ -43,6 +49,10 @@ bool Game::init(const char* title,
 		std::cout << "SDL_Init failed" << std::endl;
 	}
 		
+	//Register 
+	GameObjectFactory::getInstance()->
+		registerType("MenuButton", new MenuButtonCreator());
+
 	m_pGameStateMachine = new GameStateMachine();
 	m_pGameStateMachine->loadStateChange(MENUSTATE, CHANGE);
 
