@@ -18,9 +18,14 @@ Errors:
  - Solution view unsorted: ensure vsxproj.user/filter files have the correct file endings, these are easily deleted when renaming
 
  - Unable to start the application 0x0000000007b (or something like this): Ensure the correct .dll file versions have been used i.e. x86 or x64.
-    - This project currently uses the x86 lib
+    
+ - This project currently uses the x86 lib
+ 
 
 Credits:
+
+The majority of the game engine design is taken from SDL Game Development by Shaun Mitchell, some systems work or are named slightly differently from the original book.
+Hopefully by the time someone stumbles across this Engine further changes will have been added to provide greater utility when creating a game.
 
 Assets:
 https://opengameart.org/
