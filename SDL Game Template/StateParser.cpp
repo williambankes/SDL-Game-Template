@@ -70,6 +70,7 @@ bool StateParser::parseState(const char *stateFile, std::string stateID,
 
 	//now parse the objects:
 	parseObject(pObjectRoot, pObjects);
+	return true;
 }
 
 void StateParser::parseTextures(TiXmlElement* pStateRoot,
@@ -87,7 +88,7 @@ void StateParser::parseTextures(TiXmlElement* pStateRoot,
 	}
 }
 
-void parseObject(TiXmlElement* pStateRoot,
+void StateParser::parseObject(TiXmlElement* pStateRoot,
 	std::vector<GameObject*> *pObject)
 {
 	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL;
