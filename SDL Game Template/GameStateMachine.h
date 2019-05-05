@@ -4,6 +4,8 @@
 #include <vector>
 #include <iostream>
 
+
+//Include new state enum's here:
 enum loadFunction {
 	PUSH = 0,
 	CHANGE = 1,
@@ -11,7 +13,8 @@ enum loadFunction {
 	NOSTATE = 3,
 	MENUSTATE = 4,
 	PLAYSTATE = 5,
-	PAUSESTATE = 6
+	PAUSESTATE = 6,
+	MAINMENU = 7
 };
 
 class GameStateMachine

@@ -54,7 +54,7 @@ bool Game::init(const char* title,
 		registerType("MenuButton", new MenuButtonCreator());
 
 	m_pGameStateMachine = new GameStateMachine();
-	m_pGameStateMachine->loadStateChange(MENUSTATE, CHANGE);
+	m_pGameStateMachine->loadStateChange(MAINMENU, CHANGE);
 
 	m_brunning = true;
 	

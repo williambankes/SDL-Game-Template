@@ -1,4 +1,15 @@
 
+Corrections to SDL Game Dev:
+
+1. In the State Parser if the State Root isn't found i.e. <MENU> then the engine throws an access
+violation when it's run. Fix: check the pStateRoot != 0 or return false with error message.
+	- Needs to be done to both the texture and object sections...
+
+
+
+
+
+
 GRAPHIC:
 Design button sprites
 	- For general ui useage

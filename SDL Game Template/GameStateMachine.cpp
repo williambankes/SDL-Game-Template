@@ -65,13 +65,20 @@ GameState* GameStateMachine::createGameState(int State)
 	case PLAYSTATE:
 		return new PlayState;
 		break;
+		
 	case MENUSTATE:
 		return new MainMenuState;
 		break;
+		
 	case PAUSESTATE:
 		return new PauseState;
 		break;
-		//State cases go here
+		//State cases go here:
+
+	case MAINMENU:
+		return new MainMenuState;
+		break;
+
 	default:
 		return new MainMenuState;
 		break;

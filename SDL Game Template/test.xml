@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <STATES>
-  <MENU>
+  <MAINMENU>
     <TEXTURES>
       <texture filename="assets/play.png" ID="playbutton"/>
       <texture filename="assets/exit.png" ID="exitbutton"/>
@@ -13,7 +13,7 @@
       <object type="MenuButton" x="100" y ="300" width="200" height="100"
               textureID="exitbutton" numFrames="0" callbackID="2"/>
     </OBJECTS>    
-  </MENU>
+  </MAINMENU>
 
   <PLAY>
   </PLAY>

@@ -33,7 +33,7 @@ void MainMenuState::render()
 bool MainMenuState::onEnter() {
 	
 	StateParser stateParser;
-	stateParser.parseState("text.xml", s_menuID, &m_gameObjects,
+	stateParser.parseState("test.xml", s_menuID, &m_gameObjects,
 		&m_textureIDList);
 
 	m_callbacks.push_back(0);
@@ -42,7 +42,7 @@ bool MainMenuState::onEnter() {
 
 	setCallbacks(m_callbacks);
 
-	std::cout << "entering MenuState\n";
+	std::cout << "entering MainMenuState\n";
 
 	return true;
 }

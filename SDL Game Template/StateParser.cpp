@@ -20,7 +20,7 @@ bool StateParser::parseState(const char *stateFile, std::string stateID,
 	//load the state file
 	if (!xmlDoc.LoadFile(stateFile))
 	{
-		std::cerr << xmlDoc.ErrorDesc() << std::endl;
+		std::cerr << "State Parser error: " << xmlDoc.ErrorDesc() << std::endl;
 		return false;
 	}
 
@@ -37,6 +37,12 @@ bool StateParser::parseState(const char *stateFile, std::string stateID,
 		{
 			pStateRoot = e;
 		}
+	}
+
+	//Error check the pStateRoot:
+	if (pStateRoot == 0) {
+		std::cout << "State Parser Error: Unable to find state ID: " << stateID << std::endl;
+		return false;
 	}
 
 	//pre decalaration of texture root:
@@ -102,7 +108,7 @@ void StateParser::parseObject(TiXmlElement* pStateRoot,
 		e->Attribute("width", &width);
 		e->Attribute("height", &height);
 		e->Attribute("numFrames", &numFrames);
-		e->Attribute("callBackID", &callbackID);
+		e->Attribute("callbackID", &callbackID);
 		e->Attribute("animSpeed", &animSpeed);
 
 		textureID = e->Attribute("textureID");
