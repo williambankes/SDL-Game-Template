@@ -31,6 +31,32 @@ Assets:
 https://opengameart.org/
 
 
-How the system works:
+How the code works:
 
-Input: Inputs are handled by the InputManager
+Main.cpp creates the Game Singleton and contains the game loop.
+
+The Game class* inits SDL2, creates a window, loads the first game state into the GameStateMachine*. Game update, render and handle events mainly call the similarly
+named functions from the GameStateMachine* which in turn passes the call down to the individual game states.
+
+Game States:
+
+The GameStateMachine* can load, change, pop, and push classes that inherit from GameState. To load/change the state: m_pGameStateMachine->loadStateChange(MAINMENU, CHANGE)
+where MAINMENU is the stateID and CHANGE is the manner in which the state should be implemented. Push and Pop can be used to create pause states that don't delete an
+entire state on loading.
+
+GameStates have an onEnter and onExit function which are called on creation by the GameStateMachine, these are used to load and unload GameObjects and textures, this can
+done manually or via the StateParser class from an XML document. They also contain the specific implementations of update, render and handle events for that state.
+The stateID should also be added to the enum "Loadfunction"** in the GameStateMachine.h file.
+
+StateParser takes an XML document which details the specifics of the various GameObjects to be created and parses this into the game. The various states then create the
+required objects using the GameObjectFactory*. Creator functions (i.e. functions that create the various game objects) are registered in the Game->init function. The xml
+documents can be found in the Resource Files folder in VS.
+
+Game Objects:
+
+Managers:
+
+
+*Class implements the singleton design pattern
+
+**This implementation should be changed at a later date
