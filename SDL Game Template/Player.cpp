@@ -30,3 +30,8 @@ void Player::load(const LoaderParams* pParams)
 {
 	SDLGameObject::load(pParams);
 }
+
+GameObject* PlayerCreator::createGameObject() const
+{
+	return new Player();
+}

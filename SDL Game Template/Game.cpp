@@ -4,6 +4,7 @@
 //GameObjects:
 #include "GameObjectFactory.h"
 #include "MenuButton.h"
+#include "Player.h"
 
 //GameStates:
 #include "PlayState.h"
