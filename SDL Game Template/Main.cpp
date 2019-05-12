@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 
 	std::cout << "game init attempt ..." << std::endl;
 
-	if (Game::getInstance()->init("Chapter 5", 100, 100, 640, 480, false))
+	if (Game::getInstance()->init("Pong", 100, 100, 640, 480, false))
 	{
 		std::cout << "game init success!" << std::endl;
 		while (Game::getInstance()->running())
