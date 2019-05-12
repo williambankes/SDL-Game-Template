@@ -39,6 +39,7 @@ bool MainMenuState::onEnter() {
 	m_callbacks.push_back(0);
 	m_callbacks.push_back(s_menuToPlay);
 	m_callbacks.push_back(s_exitFromMenu);
+	m_callbacks.push_back(s_menuToMulti);
 
 	setCallbacks(m_callbacks);
 
@@ -82,7 +83,7 @@ void MainMenuState::setCallbacks(const std::vector<Callback>& callbacks)
 
 void MainMenuState::s_menuToPlay()
 {
-	Game::getInstance()->getInstance()->getStateMachine()->
+	Game::getInstance()->getStateMachine()->
 		loadStateChange(PLAYSTATE, CHANGE);
 	std::cout << "Play button clicked \n";
 }
@@ -91,4 +92,11 @@ void MainMenuState::s_exitFromMenu()
 {
 	Game::getInstance()->quit();
 	std::cout << "Exit button clicked \n";
+}
+
+void MainMenuState::s_menuToMulti()
+{
+	Game::getInstance()->getStateMachine()->
+		loadStateChange(MULTISTATE, CHANGE);
+	std::cout << "Multi button clicked \n";
 }

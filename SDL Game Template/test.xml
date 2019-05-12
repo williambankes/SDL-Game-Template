@@ -5,18 +5,35 @@
     <TEXTURES>
       <texture filename="assets/play.png" ID="playbutton"/>
       <texture filename="assets/exit.png" ID="exitbutton"/>
+      <texture filename="assets/multi.png" ID="multibutton"/>
     </TEXTURES>
 
     <OBJECTS>
       <object type="MenuButton" x="100" y="100" width="200" height="100"
               textureID="playbutton" numFrames="0" callbackID="1"/>
-      <object type="MenuButton" x="100" y ="300" width="200" height="100"
+      <object type="MenuButton" x="100" y ="500" width="200" height="100"
               textureID="exitbutton" numFrames="0" callbackID="2"/>
+      <object type="MenuButton" x="100" y="300" width="200" height="100"
+              textureID="multibutton" numFrames="0" callbackID="3"/>
     </OBJECTS>    
   </MAINMENU>
 
   <PLAY>
   </PLAY>
+
+  <PAUSE>
+    <TEXTURES>
+      <texture filename="assets/resume.png" ID="resbutton"/>
+      <texture filename="assets/mainmenu.png" ID="mainbutton"/>
+    </TEXTURES>
+
+    <OBJECTS>
+      <object type="MenuButton" x="100" y="100" width="200" height="100"
+              textureID="resbutton" numFrames="0" callbackID="1"/>
+      <object type="MenuButton" x="100" y="300" width="200" height="100"
+              textureID="mainbutton" numFrames="0" callbackID="2"/>
+    </OBJECTS>
+  </PAUSE>
 
   <GAMEOVER>
   </GAMEOVER>

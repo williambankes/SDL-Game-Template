@@ -3,6 +3,7 @@
 #include "MenuButton.h"
 #include "TextureManager.h"
 #include "InputManager.h"
+#include "StateParser.h"
 
 const std::string PauseState::s_pauseID = "PAUSE";
 
@@ -29,26 +30,15 @@ void PauseState::render()
 
 bool PauseState::onEnter()
 {
+	StateParser stateParser;
+	stateParser.parseState("test.xml", s_pauseID, &m_gameObjects,
+		&m_textureIDList);
 
-	if (!TextureManager::getInstance()->load("assets/resume.png",
-		"resumebutton", Game::getInstance()->getRenderer()))
-	{
-		return false;
-	}
+	m_callbacks.push_back(0);
+	m_callbacks.push_back(s_resumePlay);
+	m_callbacks.push_back(s_pauseToMain);
 
-	if (!TextureManager::getInstance()->load("assets/mainmenu.png",
-		"mainbutton", Game::getInstance()->getRenderer()))
-	{
-		return false;
-	}
-	
-	GameObject* button1 = new MenuButton();
-	//button1->load(new LoaderParams(100, 100, 200, 100, "resumebutton"));
-	GameObject* button2 = new MenuButton();
-	//button2->load(new LoaderParams(100, 300, 200, 100, "mainbutton"));
-
-	m_gameObjects.push_back(button1);
-	m_gameObjects.push_back(button2);
+	setCallbacks(m_callbacks);
 
 	std::cout << "entering PauseState \n";
 
@@ -70,6 +60,21 @@ bool PauseState::onExit()
 
 	std::cout << "exiting PauseState \n";
 	return true;
+}
+
+
+void PauseState::setCallbacks(const std::vector<Callback>& callbacks)
+{
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		//if they are of type Menubutton then assign a callback;
+		if (dynamic_cast<MenuButton*>(m_gameObjects[i]))
+		{
+			MenuButton* pButton =
+				dynamic_cast<MenuButton*>(m_gameObjects[i]);
+			pButton->setCallback(callbacks[pButton->getCallbackID()]);
+		}
+	}
 }
 
 

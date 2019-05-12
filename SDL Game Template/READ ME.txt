@@ -20,6 +20,8 @@ Errors:
  - Unable to start the application 0x0000000007b (or something like this): Ensure the correct .dll file versions have been used i.e. x86 or x64.
     
  - This project currently uses the x86 lib
+
+ - If the IMG_Load function doesn't work, ensure the sdl_image .dll files are in the .exe folder
  
 
 Credits:

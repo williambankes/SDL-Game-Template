@@ -6,6 +6,7 @@ bool TextureManager::load(std::string fileName, std::string id,
 	SDL_Surface* pTempSurface = IMG_Load(fileName.c_str());
 
 	if (pTempSurface == 0) {
+		std::cout << "Failed to load texture: " << id << std::endl;
 		return false;
 	}
 	
@@ -88,8 +89,6 @@ void clean() {}
 int TextureManager::check_map(std::string id) {
 	if (m_textureMap[id] == 0)
 	{
-		std::cout << "Texture Manager error: Unable to find texture " << id << " in m_textureMap"
-			<< std::endl;
 		return 1;
 	}
 	else { return 0; }

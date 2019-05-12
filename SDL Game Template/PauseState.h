@@ -1,10 +1,11 @@
 #pragma once
 #include "GameState.h"
+#include "MenuState.h"
 #include "GameObject.h"
 
 #include <vector>
 
-class PauseState : public GameState
+class PauseState : public MenuState
 {
 public:
 
@@ -18,6 +19,8 @@ public:
 
 private:
 	
+	virtual void setCallbacks(const std::vector<Callback>& callbacks);
+
 	static void s_pauseToMain();
 	static void s_resumePlay();
 
