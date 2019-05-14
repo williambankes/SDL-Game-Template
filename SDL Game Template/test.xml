@@ -19,7 +19,28 @@
   </MAINMENU>
 
   <PLAY>
+    <TEXTURES>
+      <texture filename="assets/paddle.bmp" ID="paddle"/>
+    </TEXTURES>
+
+    <OBJECTS>
+      <object type="Player" x="0" y ="533" width="50" height="300"
+              textureID="paddle" numFrames="0"/>
+    </OBJECTS>
   </PLAY>
+
+  <MULTI>
+    <TEXTURES>
+      <texture filename="assets/paddle.bmp" ID="paddle"/>
+    </TEXTURES>
+
+    <OBJECTS>
+      <object type="Player" x="0" y ="200" width="50" height="300"
+              textureID="paddle" numFrames="0"/>
+      <object type="Player" x="1316" y="200" width="50" height="300"
+              textureID="paddle" numFrames="0" player="2"/>
+    </OBJECTS>    
+  </MULTI>
 
   <PAUSE>
     <TEXTURES>

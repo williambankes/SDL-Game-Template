@@ -8,16 +8,16 @@ class LoaderParams {
 public:
 
 	LoaderParams(int x, int y, int width, int height,
-		std::string textureID, int callBackID = 0, int animSpeed = 0);
+		std::string textureID, int callBackID = 0, int animSpeed = 0,
+		int player = 0);
 
 	int getX() const;
 	int getY() const;
 	int getWidth() const;
 	int getHeight() const;
 	int getCallbackID() const;
+	int getPlayer() const;
 	std::string getTextureID() const;
-	
-
 
 private:
 
@@ -31,6 +31,7 @@ private:
 
 	int m_callBackID;
 	int m_animSpeed;
+	int m_player;
 };
 
 class GameObject {

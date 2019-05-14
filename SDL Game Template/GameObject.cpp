@@ -6,15 +6,16 @@
 
 //LoaderParams:
 LoaderParams::LoaderParams(int x, int y, int width, int height,
-	std::string textureID, int callBackID, int animSpeed) :
+	std::string textureID, int callBackID, int animSpeed, int player) :
 	m_x(x), m_y(y), m_width(width), m_height(height), m_textureID(textureID),
-m_callBackID(callBackID), m_animSpeed(animSpeed) {}
+m_callBackID(callBackID), m_animSpeed(animSpeed), m_player(player) {}
 
 int LoaderParams::getX() const { return m_x; }
 int LoaderParams::getY() const { return m_y; }
 int LoaderParams::getWidth() const { return m_width; }
 int LoaderParams::getHeight() const { return m_height; }
 int LoaderParams::getCallbackID() const { return m_callBackID; }
+int LoaderParams::getPlayer() const { return m_player; }
 std::string LoaderParams::getTextureID() const { return m_textureID; }
 
 
@@ -35,7 +36,7 @@ void SDLGameObject::load(const LoaderParams* pParams)
 	m_textureID = pParams->getTextureID();
 
 	m_currentRow = 1;
-	m_currentFrame = 1;
+	m_currentFrame = 0;
 
 }
 

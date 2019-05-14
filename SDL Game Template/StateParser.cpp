@@ -100,8 +100,11 @@ void StateParser::parseObject(TiXmlElement* pStateRoot,
 	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL;
 		e = e->NextSiblingElement())
 	{
-		int x, y, width, height, numFrames, callbackID, animSpeed;
+		int x, y, width, height, numFrames, callbackID, animSpeed, player;
 		std::string textureID;
+		
+		//set default constructor values to 0
+		animSpeed = callbackID = player = NULL;
 
 		e->Attribute("x", &x);
 		e->Attribute("y", &y);
@@ -110,13 +113,14 @@ void StateParser::parseObject(TiXmlElement* pStateRoot,
 		e->Attribute("numFrames", &numFrames);
 		e->Attribute("callbackID", &callbackID);
 		e->Attribute("animSpeed", &animSpeed);
+		e->Attribute("player", &player);
 
 		textureID = e->Attribute("textureID");
 
 		GameObject* pGameObject = GameObjectFactory::getInstance()->
 			create(e->Attribute("type"));
 		pGameObject->load(new LoaderParams(
-			x, y, width, height, textureID, callbackID, animSpeed));
+			x, y, width, height, textureID, callbackID, animSpeed, player));
 		pObject->push_back(pGameObject);		
 	}
 }

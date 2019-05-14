@@ -7,9 +7,12 @@
 
 //Include new state enum's here:
 enum loadFunction {
+	//Loading functions:
 	PUSH = 0,
 	CHANGE = 1,
 	POP = 2,
+
+	//GameStates:
 	NOSTATE = 3,
 	MENUSTATE = 4,
 	PLAYSTATE = 5,

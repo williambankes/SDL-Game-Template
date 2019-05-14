@@ -5,6 +5,9 @@ Corrections to SDL Game Dev:
 violation when it's run. Fix: check the pStateRoot != 0 or return false with error message.
 	- Needs to be done to both the texture and object sections...
 
+	... Re-do the State Parser in better manner... i.e. if a State isn't found an exception isn't
+		found an exception isn't thrown. No state needs to be implemented but if thats the case
+		the console notifies people of this.
 
 
 

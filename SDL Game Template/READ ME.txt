@@ -23,6 +23,9 @@ Errors:
 
  - If the IMG_Load function doesn't work, ensure the sdl_image .dll files are in the .exe folder
  
+ - In the state parser the default arguments for the LoaderParams class aren't set to their default 
+   values unless they're first set to NULL. Probably has something to do with the way they're assigned
+   a large negative value if not specifically Attributed to a value or set to null before hand.
 
 Credits:
 

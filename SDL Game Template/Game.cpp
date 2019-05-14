@@ -53,6 +53,8 @@ bool Game::init(const char* title,
 	//Register 
 	GameObjectFactory::getInstance()->
 		registerType("MenuButton", new MenuButtonCreator());
+	GameObjectFactory::getInstance()->
+		registerType("Player", new PlayerCreator());
 
 	m_pGameStateMachine = new GameStateMachine();
 	m_pGameStateMachine->loadStateChange(MAINMENU, CHANGE);
