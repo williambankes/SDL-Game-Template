@@ -5,6 +5,7 @@
 #include "GameObjectFactory.h"
 #include "MenuButton.h"
 #include "Player.h"
+#include "Ball.h"
 
 //GameStates:
 #include "PlayState.h"
@@ -55,6 +56,9 @@ bool Game::init(const char* title,
 		registerType("MenuButton", new MenuButtonCreator());
 	GameObjectFactory::getInstance()->
 		registerType("Player", new PlayerCreator());
+	GameObjectFactory::getInstance()->
+		registerType("Ball", new BallCreator());
+
 
 	m_pGameStateMachine = new GameStateMachine();
 	m_pGameStateMachine->loadStateChange(MAINMENU, CHANGE);

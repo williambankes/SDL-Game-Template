@@ -39,6 +39,9 @@
               textureID="paddle" numFrames="0"/>
       <object type="Player" x="1316" y="200" width="50" height="300"
               textureID="paddle" numFrames="0" player="2"/>
+      <object type="Ball" x="500" y="200" width="50" height="50"
+              textureID="paddle" numFrames="0"/>
+      
     </OBJECTS>    
   </MULTI>
 

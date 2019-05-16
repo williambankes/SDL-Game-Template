@@ -15,7 +15,7 @@ void Player::update()
 	SDLGameObject::update();  //handles basic physics e.g. vel += acc etc...
 }
 
-//This is written badly to adjust for different control settings for different players.
+
 void Player::handleInputs()
 {
 	if (InputManager::getInstance()->isKeyDown(m_up))
