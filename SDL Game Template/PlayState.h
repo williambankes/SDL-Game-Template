@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "GameObject.h"
+#include "CollisionManager.h"
 
 #include <iostream>
 #include <vector>
@@ -19,6 +20,8 @@ public:
 private:
 
 	static const std::string s_playID;
+
+	CollisionManager collision_manager;
 
 	std::vector<GameObject*> m_gameObjects;
 };

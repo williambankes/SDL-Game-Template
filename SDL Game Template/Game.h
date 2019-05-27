@@ -28,7 +28,9 @@ public:
 	GameStateMachine* getStateMachine();
 
 	SDL_Renderer* getRenderer() const {return m_pRenderer; }
-	bool running() { return m_brunning; };
+	bool running() { return m_brunning; }
+
+	
 
 private:
 
@@ -42,6 +44,7 @@ private:
 	SDL_Rect m_destinationRectangle;
 	
 	GameStateMachine* m_pGameStateMachine;
+
 	
 	//Singleton Implementation:
 	Game();

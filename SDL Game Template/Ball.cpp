@@ -1,5 +1,5 @@
 #include "Ball.h"
-
+#include "Game.h"
 
 
 Ball::Ball() : SDLGameObject() {}
@@ -11,7 +11,14 @@ void Ball::draw()
 
 
 void Ball::update()
-{
+{	
+	if (m_position.getY() < 0) {
+		m_velocity.setY(2);
+	}
+	if (m_position.getY() > 768 - m_height) {
+		m_velocity.setY(-2);
+	}
+
 	//collision code goes here:
 	SDLGameObject::update();
 }
@@ -21,6 +28,22 @@ void Ball::clean() {}
 void Ball::load(const LoaderParams* pParams)
 {
 	SDLGameObject::load(pParams);
+	m_velocity.setX(2);
+	m_velocity.setY(2);
+}
+
+void Ball::oncollision()
+{
+	std::cout << "entered correct" << std::endl;
+
+	if (m_velocity.getX() > 0)
+	{
+		m_velocity.setX(-2);
+	}
+	else
+	{
+		m_velocity.setX(2);
+	}
 }
 
 

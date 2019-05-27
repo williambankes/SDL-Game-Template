@@ -20,11 +20,11 @@ void Player::handleInputs()
 {
 	if (InputManager::getInstance()->isKeyDown(m_up))
 	{
-		m_velocity.setY(-1);
+		m_velocity.setY(-3);
 	}
 	if (InputManager::getInstance()->isKeyDown(m_down))
 	{
-		m_velocity.setY(1);
+		m_velocity.setY(3);
 	}
 	if (!InputManager::getInstance()->isKeyDown(m_down) &&
 		!InputManager::getInstance()->isKeyDown(m_up))

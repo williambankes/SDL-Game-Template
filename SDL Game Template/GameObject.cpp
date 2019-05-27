@@ -22,6 +22,7 @@ std::string LoaderParams::getTextureID() const { return m_textureID; }
 //GameObject:
 GameObject::GameObject() {}
 GameObject::~GameObject() {}
+void GameObject::oncollision() {}
 
 //SDLGameObject:
 SDLGameObject::SDLGameObject() : GameObject() {}
@@ -53,3 +54,10 @@ void SDLGameObject::update() {
 	m_velocity += m_acceleration;
 	m_position += m_velocity;
 }
+
+void SDLGameObject::oncollision() {}
+
+Vector2D SDLGameObject::get_position() { return m_position; }
+Vector2D SDLGameObject::get_velocity() { return m_velocity; }
+int SDLGameObject::get_width() { return m_width; }
+int SDLGameObject::get_height() { return m_height; }

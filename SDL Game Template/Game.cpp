@@ -50,7 +50,7 @@ bool Game::init(const char* title,
 	else {
 		std::cout << "SDL_Init failed" << std::endl;
 	}
-		
+
 	//Register 
 	GameObjectFactory::getInstance()->
 		registerType("MenuButton", new MenuButtonCreator());
@@ -93,7 +93,8 @@ void Game::handleEvents() {
 }
 
 void Game::update() {
-		
+	
+
 	if (!InputManager::getInstance()->getRunning())
 	{
 		m_brunning = false;

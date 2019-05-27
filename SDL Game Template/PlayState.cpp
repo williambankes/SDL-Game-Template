@@ -18,6 +18,9 @@ void PlayState::update()
 		Game::getInstance()->getStateMachine()->
 			loadStateChange(PAUSESTATE, PUSH);
 	}
+
+	collision_manager.collisionDetection(m_gameObjects);
+
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
 		m_gameObjects[i]->update();

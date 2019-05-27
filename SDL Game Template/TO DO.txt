@@ -12,7 +12,6 @@ violation when it's run. Fix: check the pStateRoot != 0 or return false with err
 
 
 
-
 GRAPHIC:
 Design button sprites
 	- For general ui useage

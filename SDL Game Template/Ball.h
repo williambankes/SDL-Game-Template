@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "GameObjectFactory.h"
+#include <SDL.h>
 
 class Ball : public SDLGameObject
 {
@@ -11,7 +12,10 @@ public:
 
 	void load(const LoaderParams* pParams);
 
+	void oncollision() override;
+
 	Ball();
+
 
 };
 

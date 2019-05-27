@@ -26,6 +26,8 @@
     <OBJECTS>
       <object type="Player" x="0" y ="533" width="50" height="300"
               textureID="paddle" numFrames="0"/>
+      <object type="Ball" x="500" y="533" width="50" height="50"
+              textureID="paddle" numFrames="0"/>
     </OBJECTS>
   </PLAY>
 
