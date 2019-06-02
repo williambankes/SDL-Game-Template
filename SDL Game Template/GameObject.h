@@ -42,7 +42,7 @@ public:
 	virtual void update() = 0;
 	virtual void clean() = 0;
 	virtual void load(const LoaderParams* pParams) = 0;
-	virtual void oncollision();
+	virtual void oncollision(GameObject* col);
 	
 
 protected:
@@ -61,7 +61,7 @@ public:
 	virtual void update();
 	virtual void clean();
 	virtual void load(const LoaderParams* pParams);
-	virtual void oncollision();
+	virtual void oncollision(GameObject* col);
 
 
 	Vector2D get_position();

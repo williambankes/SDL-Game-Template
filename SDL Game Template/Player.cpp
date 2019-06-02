@@ -12,6 +12,15 @@ void Player::draw()
 void Player::update()
 {
 	handleInputs();
+
+	//Screen collisions
+	if (m_velocity.getY() < 0 && m_position.getY() < 0) {
+		m_velocity.setY(0);
+	}
+	if (m_velocity.getY() > 0 && (m_position.getY() + m_height) > 768) {
+		m_velocity.setY(0);
+	}
+
 	SDLGameObject::update();  //handles basic physics e.g. vel += acc etc...
 }
 

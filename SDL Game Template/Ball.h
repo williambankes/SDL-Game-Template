@@ -12,7 +12,7 @@ public:
 
 	void load(const LoaderParams* pParams);
 
-	void oncollision() override;
+	void oncollision(GameObject* col);
 
 	Ball();
 

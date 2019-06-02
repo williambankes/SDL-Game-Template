@@ -32,9 +32,13 @@ void Ball::load(const LoaderParams* pParams)
 	m_velocity.setY(2);
 }
 
-void Ball::oncollision()
+void Ball::oncollision(GameObject* col)
 {
 	std::cout << "entered correct" << std::endl;
+
+	//check edges 
+	//if(m_position.getX() > col->get_position().getX())
+
 
 	if (m_velocity.getX() > 0)
 	{

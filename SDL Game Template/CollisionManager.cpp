@@ -30,7 +30,7 @@ void CollisionManager::collisionDetection(std::vector<GameObject*> m_gameObjects
 				dynamic_cast<SDLGameObject*>(m_gameObjects[j])))
 			{
 				std::cout << "Collision" << std::endl;
-				m_gameObjects[i]->oncollision();
+				m_gameObjects[i]->oncollision(m_gameObjects[j]);
 			}
 		}
 	}
