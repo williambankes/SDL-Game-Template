@@ -18,7 +18,8 @@ enum loadFunction {
 	PLAYSTATE = 5,
 	PAUSESTATE = 6,
 	MAINMENU = 7,
-	MULTISTATE = 8
+	MULTISTATE = 8,
+	GAMEOVERSTATE= 9
 };
 
 class GameStateMachine

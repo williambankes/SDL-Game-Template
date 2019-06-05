@@ -61,6 +61,14 @@
     </OBJECTS>
   </PAUSE>
 
-  <GAMEOVER>
-  </GAMEOVER>
+  <OVER>
+    <TEXTURES>
+      <texture filename="assets/mainmenu.png" ID="mainbutton"/>
+    </TEXTURES>
+    
+    <OBJECTS>
+      <object type="MenuButton" x="100" y="100" width="200" height="100"
+              textureID="mainbutton" numFrames="0" callbackID="1"/>
+    </OBJECTS>    
+  </OVER>
 </STATES>

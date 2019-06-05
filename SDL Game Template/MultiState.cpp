@@ -63,7 +63,7 @@ bool MultiState::onExit() {
 
 	m_textureIDList.clear();
 
-	std::cout << "exiting MainMenuState\n";
+	std::cout << "exiting GameOverState\n";
 
 	return true;
 }

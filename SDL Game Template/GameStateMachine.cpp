@@ -3,6 +3,7 @@
 #include "PauseState.h"
 #include "MainMenuState.h"
 #include "MultiState.h"
+#include "GameOverState.h"
 
 void GameStateMachine::pushState(GameState* pState)
 {
@@ -83,6 +84,11 @@ GameState* GameStateMachine::createGameState(int State)
 	case MULTISTATE:
 		return new MultiState;
 		break;
+
+	case GAMEOVERSTATE:
+		return new GameOverState;
+		break;
+
 
 	default:
 		return new MainMenuState;
