@@ -16,7 +16,9 @@ public:
 
 	Ball();
 
+private:
 
+	int m_moveValue = 2;
 };
 
 class BallCreator : public BaseCreator

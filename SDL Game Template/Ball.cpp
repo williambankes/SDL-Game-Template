@@ -31,7 +31,7 @@ void Ball::update()
 		Game::getInstance()->getStateMachine()->loadStateChange(GAMEOVERSTATE, CHANGE);
 	}
 
-	//collision code goes here:
+	
 	SDLGameObject::update();
 }
 
@@ -48,10 +48,41 @@ void Ball::oncollision(GameObject* col)
 {
 	std::cout << "entered correct" << std::endl;
 
-	//check edges 
-	//if(m_position.getX() > col->get_position().getX())
+	SDLGameObject * coll = dynamic_cast<SDLGameObject*>(col);
+	
+	//Declare important object positions
+	int bx = m_position.getX();
+	int bxw = bx + m_width;
+	int by = m_position.getY();
+	int byh = by + m_height;
+	   	 
+	int cx = coll->get_position().getX();
+	int cxw = cx + coll->get_width();
+	int cy = coll->get_position().getY();
+	int cyh = cy + coll->get_height();
 
-
+	//Insert extra conditions on collisions here:
+	//Ball left on coll right:
+	if (bx <= cxw && bxw > cxw && (byh - cy) > m_moveValue)
+	{
+		m_velocity.setX(m_moveValue);
+	}
+	//Ball right on coll left:
+	if (bxw > cx && bx < cx && (byh - cy) > m_moveValue)
+	{
+		m_velocity.setX(-1 * m_moveValue);
+	}
+	//Ball top on coll bottom:
+	if (by < cyh && byh > cyh && (bxw - cx) > m_moveValue)
+	{
+		m_velocity.setY(m_moveValue);
+	}
+	//Ball bottom on coll top:
+	if (by < cy && byh > cy && (bxw - cx) > m_moveValue)
+	{
+		m_velocity.setY(-1 * m_moveValue);
+	}
+	/*
 	if (m_velocity.getX() > 0)
 	{
 		m_velocity.setX(-2);
@@ -60,6 +91,7 @@ void Ball::oncollision(GameObject* col)
 	{
 		m_velocity.setX(2);
 	}
+	*/
 }
 
 
